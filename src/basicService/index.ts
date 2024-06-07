@@ -5,6 +5,8 @@ import { sendError } from './errors';
 export const createBaseApp = (router: express.Router) => {
   const app = express();
 
+  app.use(express.json());
+
   app.use('/health', healthCheckRouter);
 
   app.use(router);
