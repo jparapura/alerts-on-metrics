@@ -7,6 +7,7 @@
     "build": "tsc -p tsconfig.build.json",
     "start": "node dist/index.js",
     "start:dev:watch": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "prettify": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jakub Parapura",
@@ -14,6 +15,7 @@
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.14.2",
+    "prettier": "^3.3.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.4.5"
   },

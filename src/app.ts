@@ -5,4 +5,4 @@ export const createApp = () => {
   const router = express.Router();
 
   return createBaseApp(router);
-}
+};
