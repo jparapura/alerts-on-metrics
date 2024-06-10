@@ -1,12 +1,15 @@
-import { createApp } from './app';
+import { createExpressApp } from './express';
 import { logError, logInfo } from './basicService/logging/applicationLogging';
+import { startApp } from './app';
 
 const port = process.env.PORT || 8080;
 
 try {
-  const app = createApp();
+  const express = createExpressApp();
 
-  app.listen(port, () => {
+  startApp();
+
+  express.listen(port, () => {
     logInfo(`Application is listening on port ${port}.`);
   });
 } catch (err) {

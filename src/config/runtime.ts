@@ -1,0 +1,2 @@
+export const UPDATE_INTERVAL = 2;
+export const IAM_ALIVE_MESSAGE_INTERVAL = 10;

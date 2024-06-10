@@ -1,8 +1,15 @@
-import express from 'express';
-import { createBaseApp } from './basicService';
+import { executeAlertsPolicy } from "./alerts";
+import { UPDATE_INTERVAL } from "./config/runtime";
+import { updateMetricsState } from "./metrics";
+import { sendIamAliveMessages } from "./selfNotify";
 
-export const createApp = () => {
-  const router = express.Router();
+export const startApp = () => {
+  sendIamAliveMessages();
+  processEvents();
+};
 
-  return createBaseApp(router);
+const processEvents = () => {
+  updateMetricsState();
+  executeAlertsPolicy();
+  setTimeout(processEvents, 1000 * UPDATE_INTERVAL);
 };
