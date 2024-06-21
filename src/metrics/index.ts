@@ -1,11 +1,11 @@
 import { currentMetricState } from "../alerts/store";
-import { UPDATE_INTERVAL } from "../config/runtime";
+import config from "../config/runtime";
 import testAlertConfig from "../config/testAlert";
 import { MetricSeverity } from "../models/metric";
 
 export const updateMetricsState = () => {
   const now = Date.now();
-  const eventsThreshold = now - testAlertConfig.okThreshold * 1000 * UPDATE_INTERVAL;
+  const eventsThreshold = now - testAlertConfig.okThreshold * 1000 * (config.timing.updateInterval as unknown as number);
   const relevantEvents = currentMetricState.receivedEvents.filter(date => date >= eventsThreshold);
   currentMetricState.receivedEvents = relevantEvents as [number];
   currentMetricState.currentValue = relevantEvents.length;

@@ -1,7 +1,7 @@
-import { executeAlertsPolicy } from "./alerts";
-import { UPDATE_INTERVAL } from "./config/runtime";
-import { updateMetricsState } from "./metrics";
-import { sendIamAliveMessages } from "./selfNotify";
+import { executeAlertsPolicy } from './alerts';
+import config from './config/runtime';
+import { updateMetricsState } from './metrics';
+import { sendIamAliveMessages } from './selfNotify';
 
 export const startApp = () => {
   sendIamAliveMessages();
@@ -11,5 +11,8 @@ export const startApp = () => {
 const processEvents = () => {
   updateMetricsState();
   executeAlertsPolicy();
-  setTimeout(processEvents, 1000 * UPDATE_INTERVAL);
+  setTimeout(
+    processEvents,
+    1000 * (config.timing.updateInterval as unknown as number),
+  );
 };
