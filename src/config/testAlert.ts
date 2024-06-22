@@ -1,4 +1,4 @@
-import { AlertConfig } from "../models/alert";
+import { AlertConfig } from '../models/alert';
 
 const testAlertConfig: AlertConfig = {
   name: 's1_availability',

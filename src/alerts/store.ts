@@ -1,4 +1,4 @@
-import { MetricState } from "../models/metric";
+import { MetricState } from '../models/metric';
 
 export const currentMetricState: MetricState = {
   name: 's1_availability',
