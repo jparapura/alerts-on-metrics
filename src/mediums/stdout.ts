@@ -6,7 +6,7 @@ class Stdout implements Medium {
   }
 
   public sendMessage(messageType: MessageType, message: string): void {
-    console.log(`[MEDIUM] ${messageType}: ${message}`);
+    console.log(`[ALERT] ${messageType}: ${message}`);
   }
 }
 

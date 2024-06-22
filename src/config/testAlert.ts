@@ -1,7 +1,7 @@
 import { AlertConfig } from '../models/alert';
 
 const testAlertConfig: AlertConfig = {
-  name: 's1_availability',
+  name: 'power_availability for lenartowicza_243',
   okThreshold: 10,
   errorThreshold: 0,
 };
