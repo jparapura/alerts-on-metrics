@@ -1,9 +1,11 @@
 import { executeAlertsPolicy } from './alerts';
-import config from './config/runtime';
+import mediumsManager from './mediums/mediumsManager';
 import { updateMetricsState } from './metrics';
 import { sendIamAliveMessages } from './selfNotify';
+import config from './config/runtime';
 
 export const startApp = () => {
+  mediumsManager.initializeAllMediums();
   sendIamAliveMessages();
   processEvents();
 };

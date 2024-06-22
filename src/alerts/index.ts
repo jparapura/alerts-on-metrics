@@ -1,19 +1,26 @@
-import testAlertConfig from "../config/testAlert";
-import { currentMetricState } from "./store";
+import testAlertConfig from '../config/testAlert';
+import { MessageType } from '../mediums/interfaces';
+import mediumsManager from '../mediums/mediumsManager';
+import { currentMetricState } from './store';
 
 export const executeAlertsPolicy = () => {
-  if (currentMetricState.severityState === currentMetricState.previousSeverityState) {
+  if (
+    currentMetricState.severityState ===
+    currentMetricState.previousSeverityState
+  ) {
     return;
   }
 
   currentMetricState.previousSeverityState = currentMetricState.severityState;
-  // TODO output medium
+
+  // TODO separate function
   const output = `${currentMetricState.severityState}
 Metric:
 ${currentMetricState.name}
 ${getInvalidMetricPrompt()}`;
 
-  console.log(output);
+  // TODO proper message type
+  mediumsManager.notifyAllMediums(MessageType.metricOk, output);
 };
 
 const getInvalidMetricPrompt = () => {
@@ -25,4 +32,4 @@ const getInvalidMetricPrompt = () => {
     case 'error':
       return `${currentMetricState.currentValue} <= ${testAlertConfig.errorThreshold}`;
   }
-}
+};
