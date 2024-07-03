@@ -6,10 +6,7 @@ import { MetricSeverity } from '../models/metric';
 export const updateMetricsState = () => {
   const now = Date.now();
   const eventsThreshold =
-    now -
-    testAlertConfig.okThreshold *
-      1000 *
-      (config.timing.updateInterval as unknown as number);
+    now - (config.timing.eventRelevanceThreshold as unknown as number) * 1000 * 60;
   const relevantEvents = currentMetricState.receivedEvents.filter(
     (date) => date >= eventsThreshold,
   );
