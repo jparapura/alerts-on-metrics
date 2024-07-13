@@ -3,5 +3,10 @@
   "extends": [
     "config:recommended"
   ],
-  "commitMessagePrefix": ":arrow_up:"
+  "commitMessagePrefix": ":arrow_up:",
+  "packageRules": [
+    {
+      "excludePackageNames": ["require-environment-variables"]
+    }
+  ]
 }
