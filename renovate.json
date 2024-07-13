@@ -3,5 +3,6 @@
   "extends": [
     "config:recommended"
   ],
-  "commitMessagePrefix": ":arrow_up:"
+  "commitMessagePrefix": ":arrow_up:",
+  "ignoreDeps": ["require-environment-variables"]
 }
