@@ -3,5 +3,5 @@
   "extends": [
     "config:recommended"
   ],
-  "commitMessage": ":arrow_up: Upgrade {{depName}} from {{currentVersion}} to {{newVersion}}"
+  "commitMessagePrefix": ":arrow_up:"
 }
