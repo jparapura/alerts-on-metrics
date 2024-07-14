@@ -14,12 +14,14 @@ const loadConfig = () => {
     'DISCORD_INTERNAL_ERROR_CHANNEL_ID',
     'UPDATE_INTERVAL',
     'IAM_ALIVE_MESSAGE_INTERVAL',
+    'EVENT_RELEVANCE_THRESHOLD',
   ]);
 
   return {
     timing: {
       updateInterval: env.UPDATE_INTERVAL,
       iamAliveMessageInterval: env.IAM_ALIVE_MESSAGE_INTERVAL,
+      eventRelevanceThreshold: env.EVENT_RELEVANCE_THRESHOLD,
     },
     mediums: {
       discordMetricOkChannelId: env.DISCORD_METRIC_OK_CHANNEL_ID,
