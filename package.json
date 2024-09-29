@@ -20,7 +20,7 @@
     "typescript": "5.4.5"
   },
   "dependencies": {
-    "discord.js": "14.15.3",
+    "discord.js": "14.16.3",
     "dotenv": "16.4.5",
     "express": "4.19.2",
     "require-environment-variables": "1.2.0"
